@@ -23,6 +23,8 @@ UASAttributeSetBase::UASAttributeSetBase() : Health(1000), MaxHealth(1000), Mana
 // Executes after the gameplay effect blueprint
 void UASAttributeSetBase::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData &Data)
 {
+	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("UASAttributeSetBase::PostGameplayEffectExecute"));
+
 	// first Line in the if condition is to get the Attribute that got modified by any game play effect
 	// then we check whether this attribute is the same attribute we wanna check against which is health
 	if (Data.EvaluatedData.Attribute.GetUProperty() ==
